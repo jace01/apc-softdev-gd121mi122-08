@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2015 at 07:18 AM
+-- Generation Time: Jul 21, 2015 at 07:36 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.5.24
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `myaddress` (
   `id` int(11) NOT NULL,
   `firstname` varchar(30) NOT NULL,
+  `middlename` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
   `gender` varchar(1) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -41,8 +42,8 @@ CREATE TABLE IF NOT EXISTS `myaddress` (
 -- Dumping data for table `myaddress`
 --
 
-INSERT INTO `myaddress` (`id`, `firstname`, `lastname`, `gender`, `created_at`, `home_address`, `landline`, `cellphone`) VALUES
-(1, 'Paolo', 'De Guzman', 'M', '2015-07-21 05:16:30', 'Sucat, Paranaque City', '5078360', '09054217878');
+INSERT INTO `myaddress` (`id`, `firstname`, `middlename`, `lastname`, `gender`, `created_at`, `home_address`, `landline`, `cellphone`) VALUES
+(1, 'Paolo', 'Ramirez', 'De Guzman', 'M', '2015-07-21 05:34:14', 'Sucat, Paranaque City', '5078360', '09054217878');
 
 -- --------------------------------------------------------
 

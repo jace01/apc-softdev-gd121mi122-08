@@ -15,7 +15,7 @@ use Yii;
  *
  * @property Myaddress $myaddress
  */
-class MyComment extends \yii\db\ActiveRecord
+class Mycomment extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc

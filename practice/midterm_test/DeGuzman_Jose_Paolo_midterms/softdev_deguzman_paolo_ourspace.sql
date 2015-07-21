@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2015 at 07:02 AM
+-- Generation Time: Jul 21, 2015 at 07:18 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.5.24
 
@@ -35,7 +35,14 @@ CREATE TABLE IF NOT EXISTS `myaddress` (
   `home_address` varchar(50) DEFAULT NULL,
   `landline` varchar(20) DEFAULT NULL,
   `cellphone` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `myaddress`
+--
+
+INSERT INTO `myaddress` (`id`, `firstname`, `lastname`, `gender`, `created_at`, `home_address`, `landline`, `cellphone`) VALUES
+(1, 'Paolo', 'De Guzman', 'M', '2015-07-21 05:16:30', 'Sucat, Paranaque City', '5078360', '09054217878');
 
 -- --------------------------------------------------------
 
@@ -49,7 +56,14 @@ CREATE TABLE IF NOT EXISTS `mycomment` (
   `author` varchar(255) NOT NULL,
   `body` longtext NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mycomment`
+--
+
+INSERT INTO `mycomment` (`id`, `myaddress_id`, `author`, `body`, `created_at`) VALUES
+(1, 1, 'Paolo', 'Wazzup!', '2015-07-21 05:17:36');
 
 --
 -- Indexes for dumped tables
@@ -75,12 +89,12 @@ ALTER TABLE `mycomment`
 -- AUTO_INCREMENT for table `myaddress`
 --
 ALTER TABLE `myaddress`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `mycomment`
 --
 ALTER TABLE `mycomment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --

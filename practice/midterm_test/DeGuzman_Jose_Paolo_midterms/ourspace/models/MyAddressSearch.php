@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\MyAddress;
+use app\models\Myaddress;
 
 /**
- * MyAddressSearch represents the model behind the search form about `app\models\MyAddress`.
+ * MyaddressSearch represents the model behind the search form about `app\models\Myaddress`.
  */
-class MyAddressSearch extends MyAddress
+class MyaddressSearch extends Myaddress
 {
     /**
      * @inheritdoc
@@ -41,7 +41,7 @@ class MyAddressSearch extends MyAddress
      */
     public function search($params)
     {
-        $query = MyAddress::find();
+        $query = Myaddress::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

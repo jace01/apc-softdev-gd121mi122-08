@@ -1,6 +1,9 @@
 html,
 body {
     height: 100%;
+	font-family: 'Papyrus';
+	background-color: #e0c456;
+	color: #9a8639;
 }
 
 .wrap {

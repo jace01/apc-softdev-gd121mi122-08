@@ -20,6 +20,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'gender')->textInput(['maxlength' => 1]) ?>
 
+    <?= $form->field($model, 'home_address')->textInput(['maxlength' => 50]) ?>
+
+    <?= $form->field($model, 'landline')->textInput(['maxlength' => 20]) ?>
+
+    <?= $form->field($model, 'cellphone')->textInput(['maxlength' => 20]) ?>
+
     <?= $form->field($model, 'created_at')->textInput() ?>
 
     <div class="form-group">

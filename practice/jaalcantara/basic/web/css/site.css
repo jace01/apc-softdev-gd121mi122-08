@@ -1,6 +1,9 @@
 html,
 body {
     height: 100%;
+	font-family: 'Arial Black';
+	color: #0041C2;
+	background-color: #79BAEC;
 }
 
 .wrap {

@@ -1,7 +1,9 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
+use app\models\Province;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\City */
@@ -18,7 +20,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'citycol')->textInput(['maxlength' => 45]) ?>
 
-    <?= $form->field($model, 'province_id')->textInput() ?>
+    <?= $form->field($model, 'province_id')->dropdownList(
+			ArrayHelper::map(Province::find()->all(), 'id', 'province_description'),
+			['prompt'=>'Choose a province'])
+			?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

@@ -61,11 +61,4 @@ class Province extends \yii\db\ActiveRecord
         return $this->hasOne(Region::className(), ['id' => 'region_id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getId0()
-    {
-        return $this->hasOne(City::className(), ['province_id' => 'id']);
-    }
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2015 at 07:32 AM
+-- Generation Time: Jul 24, 2015 at 05:27 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -36,14 +36,16 @@ CREATE TABLE IF NOT EXISTS `myaddress` (
   `home_address` varchar(50) DEFAULT NULL,
   `landline` varchar(20) DEFAULT NULL,
   `cellphone` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `myaddress`
 --
 
 INSERT INTO `myaddress` (`id`, `firstname`, `middlename`, `lastname`, `gender`, `created_at`, `home_address`, `landline`, `cellphone`) VALUES
-(1, 'Joyce', 'Segundo', 'Miralles', 'F', '2015-07-21 05:30:29', NULL, NULL, NULL);
+(1, 'Joyce', 'Segundo', 'Miralles', 'F', '2015-07-21 05:30:29', NULL, NULL, NULL),
+(2, 'Mitsukuni', 'L', 'Haninozuka', 'M', '2015-07-24 01:00:26', NULL, NULL, NULL),
+(3, 'Tony', 'Tony', 'Chopper', 'M', '2015-07-24 01:01:42', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -57,14 +59,15 @@ CREATE TABLE IF NOT EXISTS `mycomment` (
   `author` varchar(255) NOT NULL,
   `body` longtext NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `mycomment`
 --
 
 INSERT INTO `mycomment` (`id`, `myaddress_id`, `author`, `body`, `created_at`) VALUES
-(1, 1, 'Hani senpai', 'Cakes. Cakes. Strawberry Shortcake.', '2015-07-21 05:31:43');
+(1, 1, 'Hani senpai', 'Cakes. Cakes. Strawberry Shortcake.', '2015-07-21 05:31:43'),
+(2, 2, 'Eiichiro Oda', 'One Piece is not done yet. Forever One Piece.', '2015-07-24 01:02:46');
 
 --
 -- Indexes for dumped tables
@@ -90,12 +93,12 @@ ALTER TABLE `mycomment`
 -- AUTO_INCREMENT for table `myaddress`
 --
 ALTER TABLE `myaddress`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `mycomment`
 --
 ALTER TABLE `mycomment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --

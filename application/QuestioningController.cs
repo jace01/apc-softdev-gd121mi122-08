@@ -37,7 +37,7 @@ public class QuestioningController : MonoBehaviour {
 	}
 
 	public void Popup () {
-		Instantiate (bubbles [arraypos], bubbles[arraypos].transform.position, this.transform.rotation);
+		Instantiate (bubbles [arraypos], this.transform.position, bubbles[arraypos].transform.rotation);
 		arraypos++;
 	}
 }

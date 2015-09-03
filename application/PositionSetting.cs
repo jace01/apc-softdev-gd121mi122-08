@@ -7,7 +7,14 @@ public class PositionSetting : MonoBehaviour {
 	Vector3 startingPos;
 	public Rect windowRect = new Rect(150, 200, 200, 50);
 	public GameObject thermo;
-	public bool doWindow0 = false;
+	public GameObject analyze;
+	public GameObject exclamation;
+	public GameObject back;
+	public GameObject abnormality;
+	public GameObject yes;
+	public GameObject no;
+	public GameObject clipboard;
+	bool load = true;
 
 	// Use this for initialization
 	void Start () {
@@ -16,41 +23,84 @@ public class PositionSetting : MonoBehaviour {
 		startingPos = cachedTransform.position;
 
 		thermo.SetActive (false);
+		analyze.SetActive (false);
+		exclamation.SetActive (false);
+		back.SetActive (false);
+		abnormality.SetActive (false);
+		yes.SetActive (false);
+		no.SetActive (false);
+		clipboard.SetActive (false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (/*Input.GetTouch(0).phase == TouchPhase.Ended*/Input.GetMouseButtonUp(0) && load == false) {
+			StartCoroutine ("loading");
+		}
 	}
 
 	void OnTriggerEnter(Collider doink){
-		if (doink.tag == "patient" && Input.GetTouch(0).phase == TouchPhase.Ended) {
-			StartCoroutine("loading");
+		if (doink.tag == "patient" && load == true){
+			load = false;
 		}
 	}
 
 	IEnumerator loading(){
+		load = true;
+		yield return new WaitForSeconds (0.5f);
+		analyze.SetActive (true);
 		yield return new WaitForSeconds (2);
+		analyze.SetActive (false);
 		thermo.SetActive(true);
-		yield return new WaitForSeconds (2);
-		doWindow0 = true;
-	}
-	void OnGUI() {
-		if(doWindow0)
-			windowRect = GUI.Window(100, windowRect, DoMyWindow, "Is this an abnormality?");
+		exclamation.SetActive (true);
+		back.SetActive (true);
 	}
 
-	void DoMyWindow(int windowID) {
-		if (GUI.Button (new Rect (60, 40, 70, 40), "Yes")) {
-			print ("Saved to Notes");
-			thermo.SetActive (false);
-			doWindow0 = false;
+	void OnTriggerExit(Collider doink){
+		if (doink.tag == "patient") {
+			load = true;
 		}
-		if (GUI.Button (new Rect (170, 40, 70, 40), "No")) {
-			print ("Back");
-			thermo.SetActive (false);
-			doWindow0 = false;
+	}
+
+	void Option(string pew){
+		if (pew == "exclamation") {
+			thermo.SetActive(true);
+			exclamation.SetActive (true);
+			back.SetActive (true);
+			abnormality.SetActive (true);
+			yes.SetActive (true);
+			no.SetActive (true);
+		} else if (pew == "back") {
+			thermo.SetActive(false);
+			exclamation.SetActive (false);
+			back.SetActive (false);
 		}
+	}
+
+	void Yes(){
+		abnormality.SetActive (false);
+		yes.SetActive (false);
+		no.SetActive (false);
+		Debug.Log ("Saved to Notes.");
+		StartCoroutine ("YesOption");
+	}
+
+	IEnumerator YesOption(){
+		clipboard.SetActive (true);
+		yield return new WaitForSeconds (2);
+		clipboard.SetActive (false);
+		thermo.SetActive(false);
+		exclamation.SetActive (false);
+		back.SetActive (false);
+	}
+
+	void No(){
+		abnormality.SetActive (false);
+		yes.SetActive (false);
+		no.SetActive (false);
+		thermo.SetActive(false);
+		exclamation.SetActive (false);
+		back.SetActive (false);
 	}
 }
 
